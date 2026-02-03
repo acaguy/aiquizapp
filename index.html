@@ -87,27 +87,17 @@
             },
             {
                 id: 9,
-                question: "Visual Analysis:\n\nIs this image Real or AI?",
-                image: "https://i.imgur.com/koLhngc.jpeg",
-                options: ["Real", "AI"],
+                question: "Visual Comparison:\n\nLook at these three images. One is Real, and two are AI. Which one is Real?",
+                images: [
+                    "https://i.imgur.com/koLhngc.jpeg",
+                    "https://i.imgur.com/c4zkplZ.jpeg",
+                    "https://i.imgur.com/u5xsRU7.jpeg"
+                ],
+                options: ["Left", "Center", "Right"],
                 correctAnswer: 1
             },
             {
                 id: 10,
-                question: "Visual Analysis:\n\nIs this image Real or AI?",
-                image: "https://i.imgur.com/c4zkplZ.jpeg",
-                options: ["Real", "AI"],
-                correctAnswer: 0
-            },
-            {
-                id: 11,
-                question: "Visual Analysis:\n\nIs this image Real or AI?",
-                image: "https://i.imgur.com/u5xsRU7.jpeg",
-                options: ["Real", "AI"],
-                correctAnswer: 1
-            },
-            {
-                id: 12,
                 question: "Visual Comparison:\n\nLook at these two images. Which one is Real?",
                 images: [
                 "https://i.imgur.com/ztm6JjU.jpeg",
@@ -117,14 +107,14 @@
                 correctAnswer: 1
             },
             {
-                id: 13,
+                id: 11,
                 question: "Visual Analysis:\n\nIs this image Real or AI?",
                 image: "https://i.imgur.com/3geNwIN.jpeg",
                 options: ["Real", "AI"],
                 correctAnswer: 1
             },
             {
-                id: 14,
+                id: 12,
                 question: "Visual Analysis:\n\nWhich of these images is real?",
                 image: "https://i.imgur.com/SUUTFKu.jpeg",
                 options: ["Top Left", "Bottom Left", "Right"],
@@ -254,7 +244,9 @@
                                                 onError={(e) => { e.target.style.display = 'none'; }} 
                                             />
                                             <div className="absolute bottom-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
-                                                {i === 0 ? "Left" : "Right"}
+                                                {currentQuestion.images.length === 3 
+                                                    ? ["Left", "Center", "Right"][i] 
+                                                    : (i === 0 ? "Left" : "Right")}
                                             </div>
                                         </div>
                                     ))
